@@ -37,15 +37,16 @@ public class TransparentOrigamiController implements CommandLineRunner {
             if (line.contains("fold along ")) {
                 if (line.charAt(11) == 'x'){
                     paper.foldAlongX(Integer.parseInt(line.substring(13)));
+                    logger.info("paper folded along X{}", line.substring(13));
                 }
                 else if (line.charAt(11) == 'y'){
                     paper.foldAlongY(Integer.parseInt(line.substring(13)));
+                    logger.info("paper folded along Y{}", line.substring(13));
                 }
-                System.out.println(paper.getDotCount());
 
             }
         }
-        System.out.println(paper);
+        logger.info("\n" + paper.toString());
     }
 
 }
